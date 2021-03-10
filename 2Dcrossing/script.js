@@ -29,7 +29,6 @@ function set(){
             p = Number(document.getElementById("p").value);
             updateCanvas()
             percolationSquares(n,p,d);
-            step0();
         } else{
             document.getElementById("n").value = n;
             document.getElementById("d").value = d;
@@ -41,7 +40,6 @@ function set(){
         p = Number(document.getElementById("p").value);
         updateCanvas()
         percolationSquares(n,p,d);
-        step0();
     }
 }
 function reset(){
@@ -53,7 +51,6 @@ function reset(){
     document.getElementById("p").value = p;
     updateCanvas()
     percolationSquares(n,p,d);
-    step0();
 }
 
 function updateCanvas(){
@@ -147,6 +144,8 @@ function uniformSquares(x,y,p){
         } 
         squares.push(subsquares);
     }
+    active1 = []
+    active2 = []
     drawAll()
 }
 
@@ -166,6 +165,8 @@ function percolationSquares(n,p,d){
         } 
         squares.push(subsquares);
     }
+    active1 = []
+    active2 = []
     drawAll()
 }
 
@@ -175,21 +176,22 @@ var active1 = []
 var active2 = []
 
 function step0(){
-    active1 = []
-    active2 = []
-    length = 1
-    txt.innerHTML = "path length: "+length
-    for (var i = 0; i < n**d; i++) {
-        if(squares[i][0] == color3){
-            squares[i][0] = color2
-            active1.push( [i,0] )
-            active2.push( [i,0] )
+    if(active1.length==0 && active2.length==0){
+        active1 = []
+        active2 = []
+        length = 1
+        txt.innerHTML = "path length: "+length
+        for (var i = 0; i < n**d; i++) {
+            if(squares[i][0] == color3 || squares[i][0] == color2){
+                squares[i][0] = color2
+                active1.push( [i,0] )
+                active2.push( [i,0] )
+            }
         }
+        drawAll();
     }
-    drawAll();
 }
 
-step0()
 
 function finished(){
     for(var i = 0; i<active1.length; i++){

@@ -13,11 +13,12 @@
             <button class="btn" id="reset" onclick="reset()">Default</button> 
         </div>
         <div class="btns">
+            <button class="btn" id="step0-bt" onclick="step0()">Initialize</button> 
             <button class="btn" id="one-step-bt" onclick="step()">One step</button> 
             <button class="btn" id="multi-step-bt" onclick="steps()">Multi-steps</button> 
             <button class="btn" id="rotate-bt" onclick="rotate()">Rotate</button>
-            <button class="btn" id="percolation-bt" onclick="materials = percolationCubes(n,p,d); step0()">Random Percolation</button> 
-            <button class="btn" id="uniform-bt" onclick="materials = uniformCubes(n**d,n**d,n**d,p); step0()">Random Uniform Distribution</button> 
+            <button class="btn" id="percolation-bt" onclick="materials = percolationCubes(n,p,d)">Random Recursive Percolation</button> 
+            <button class="btn" id="uniform-bt" onclick="materials = uniformCubes(n**d,n**d,n**d,p)">Random Uniform Distribution</button> 
         </div>
         <script src="three.js"></script>
         <script src="script.js"></script>

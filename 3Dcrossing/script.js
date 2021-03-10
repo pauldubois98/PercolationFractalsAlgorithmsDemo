@@ -27,7 +27,6 @@ function set(){
             d = Number(document.getElementById("d").value);
             p = Number(document.getElementById("p").value);
             materials = percolationCubes(n,p,d);
-            step0();
         } else{
             document.getElementById("n").value = n;
             document.getElementById("d").value = d;
@@ -38,7 +37,6 @@ function set(){
         d = Number(document.getElementById("d").value);
         p = Number(document.getElementById("p").value);
         materials = percolationCubes(n,p,d);
-        step0();
     }
 }
 function reset(){
@@ -49,7 +47,6 @@ function reset(){
     document.getElementById("d").value = d;
     document.getElementById("p").value = p;
     materials = percolationCubes(n,p,d);
-    step0();
 }
 
 
@@ -170,6 +167,8 @@ function uniformCubes(x,y,z,p){
         } 
         materials.push(submaterials);
     }
+    active1 = []
+    active2 = []
     return materials
 }
 
@@ -207,6 +206,8 @@ function percolationCubes(n,p,d){
         } 
         materials.push(submaterials);
     }
+    active1 = []
+    active2 = []
     return materials
 }
 
@@ -216,23 +217,24 @@ var active1 = []
 var active2 = []
 
 function step0(){
-    active1 = []
-    active2 = []
-    length = 1
-    txt.innerHTML = "path length: "+length
-    for (var i = 0; i < n**d; i++) {
-        for (var j = 0; j < n**d; j++) {
-            if(materials[i][j][0].color == color3){
-                materials[i][j][0].color = color2
-                materials[i][j][0].opacity = 0.3
-                active1.push( [i,j,0] )
-                active2.push( [i,j,0] )
+    if(active1.length==0 && active2.length==0){
+        active1 = []
+        active2 = []
+        length = 1
+        txt.innerHTML = "path length: "+length
+        for (var i = 0; i < n**d; i++) {
+            for (var j = 0; j < n**d; j++) {
+                if(materials[i][j][0].color == color3 || materials[i][j][0].color == color2){
+                    materials[i][j][0].color = color2
+                    materials[i][j][0].opacity = 0.3
+                    active1.push( [i,j,0] )
+                    active2.push( [i,j,0] )
+                }
             }
         }
     }
 }
 
-step0()
 
 function finished(){
     for(var i = 0; i<active1.length; i++){
