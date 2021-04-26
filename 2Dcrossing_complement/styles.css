@@ -1,0 +1,50 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    margin: auto;
+    border: black 1px solid;
+}
+
+.float{
+    width: 4em;
+}
+.int{
+    width: 3em;
+}
+.opt{
+    border: 0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+#reset{
+    background: dimgray;
+}
+.btn{
+    border: 0;
+    margin-bottom: 0.25em;
+}
+#one-step-bt{
+    background: skyblue;
+    background: steelblue;
+}
+#multi-step-bt{
+    background:blue;
+    background: steelblue;
+    background: teal;
+}
+#rotate-bt{
+    background: green;
+}
+#percolation-bt{
+    background: red;
+}
+#uniform-bt{
+    background: orange;
+}
+
+

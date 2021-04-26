@@ -1,0 +1,25 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>2D Fractal Percolation Complement</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>2D Fractal Percolation Complement</h1>
+        <div class="opts">
+            n: <input type="number" id="n" class="int" name="side" min="2" max="5" step="1" value="3" onchange="set()">
+            d: <input type="number" id="d" class="int" name="depth" min="1" max="4" step="1" value="2" onchange="set()">
+            p: <input type="number" id="p" class="float" name="proba" min="0" max="1" step="0.01" value="0.6" onchange="set()">
+            <button class="btn" id="reset" onclick="reset()">Default</button> 
+        </div>
+        <div class="btns">
+            <button class="btn" id="step0-bt" onclick="step0()">Initialize</button> 
+            <button class="btn" id="one-step-bt" onclick="step()">One step</button> 
+            <button class="btn" id="multi-step-bt" onclick="steps()">Multi-steps</button> 
+            <button class="btn" id="percolation-bt" onclick="percolationSquares(n,p,d)">Random Recursive Percolation</button> 
+            <button class="btn" id="uniform-bt" onclick="uniformSquares(n**d,n**d,p)">Random Uniform Distribution</button> 
+        </div>
+        <canvas id='canvas'></canvas>
+        <script src="script.js"></script>
+    </body>
+</html>
